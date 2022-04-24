@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>SAN OPTİK</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/price-range.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet">
+	<link href="css/responsive.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+</head><!--/head-->
+
+<body>
+	<header id="header"><!--header-->
+
+
+		<div class="header-middle"><!--header-middle-->
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="logo pull-left">
+							<a href="index.html"><img src="images/home/sanoptik2.png" alt="" /></a>
+						</div>
+						<div class="btn-group pull-right">
+
+
+
+						</div>
+					</div>
+					<div class="col-sm-8">
+						<div class="shop-menu pull-right">
+							<ul class="nav navbar-nav">
+								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Sepet</a></li>
+								<li><a href="{{url('admingiris')}}"><i class="fa fa-lock"></i> Giriş Yap</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/header-middle-->
+
+		<div class="header-bottom"><!--header-bottom-->
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-9">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+						</div>
+						<div class="mainmenu pull-left">
+							<ul class="nav navbar-nav collapse navbar-collapse">
+								<li><a href="{{'anasayfa'}}" class="active">Ana Sayfa</a></li>
+								<li class="dropdown"><a href="{{'ürünlerwelcome'}}">Ürünler<i class="fa fa-angle-down"></i></a>
+                                    <ul role="menu" class="sub-menu">
+                                        <li><a href="{{'güneşgözlükleriwelcome'}}">Güneş Gözlükleri</a></li>
+										<li><a href="{{'numaralıwelcome'}}">Numaralı Gözlükler</a></li>
+										<li><a href="{{'lenswelcome'}}">Lensler</a></li>
+                                    </ul>
+                                </li>
+								<li><a href="{{'vizyonwelcome'}}">Vizyon-Misyon</a>
+
+                                </li>
+
+								<li><a href="{{'iletişimwelcome'}}">İletişim</a></li>
+                                <li><a href="{{'hakkımızdawelcome'}}">Hakkımızda</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-3">
+
+
+					</div>
+				</div>
+			</div>
+		</div><!--/header-bottom-->
+	</header><!--/header-->
+
+	<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+	  @foreach($slider as $key =>$slide)
+    <div class="item{{ $key == 0 ? ' active' : '' }}">
+	<div class="item">
+								<div class="col-sm-6">
+									<h1>{{$slide->baslık}}</h1>
+									<h2>{{$slide->baslık2}}</h2>
+									<p>{{$slide->yazı}}</p>
+								</div>
+								<div class="col-sm-6">
+									<img src="{{ asset ('public/images/'.$slide->resim)}}" class="girl img-responsive" alt="" />
+
+								</div>
+							</div>
+    </div>
+	@endforeach
+
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-13 padding-right">
+					<div class="features_items"><!--features_items-->
+						<h2 class="title text-center">Ürünlerimiz</h2>
+						@forelse ($ürün  as $key => $item)
+
+						<div class="col-sm-4">
+							<div class="product-image-wrapper">
+								<div class="single-products">
+
+										<div class="productinfo text-center">
+											<img src="{{ asset ('public/images/'.$item->resim)}}" width="70px" height="350px" />
+											<h2>{{$item->fiyat}} TL</h2>
+											<p>{{$item->ürünadı}}</p>
+
+											<a href="{{url('admingiris')}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Sepete Ekle</a>
+											<a href="{{url('ürünayrıntıiki/'.$item->id)}}" class="btn btn-default add-to-cart"><i class="fa fa-info-circle"></i>Ürün Ayrıntısı</a>
+										</div>
+										<div class="product-overlay">
+											<div class="overlay-content">
+												<h2>{{$item->fiyat}} TL</h2>
+												<p>{{$item->ürünadı}}</p>
+												<a href="{{url('admingiris')}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Sepete Ekle</a>
+												<a href="{{url('ürünayrıntıiki/'.$item->id)}}" class="btn btn-default add-to-cart"><i class="fa fa-info-circle"></i>Ürün Ayrıntısı</a>
+											</div>
+										</div>
+
+								</div>
+
+							</div>
+						</div>
+						@empty
+						@endforelse
+
+
+
+					</div><!--features_items-->
+
+
+
+
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer id="footer"><!--Footer-->
+	@forelse ($footer  as $key => $item)
+		<div class="footer-widget">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="single-widget">
+							<h2>Hakkımızda</h2>
+                            <h5>{{$item->hakkımızda}}</h5>
+
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="single-widget">
+						<br><br>
+                            <ul>
+                                <li>
+                                    <p><i class="fa fa-map-marker">&nbsp&nbsp</i>Address: {{$item->adres}}</p>
+                                </li>
+                                <li>
+                                    <p><i class="fa fa-phone-square">&nbsp&nbsp</i>Phone: <a href="">{{$item->telefon}}</a></p>
+                                </li>
+                                <li>
+                                    <p><i class="fa fa-envelope">&nbsp&nbsp</i>Email: <a href="mailto:{{$item->mail}}">{{$item->mail}}</a></p>
+                                </li>
+
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+
+		<div class="footer-bottom">
+			<div class="container">
+
+			</div>
+		</div>
+		@empty
+		@endforelse
+	</footer><!--/Footer-->
+
+
+    <script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.scrollUp.min.js"></script>
+	<script src="js/price-range.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
